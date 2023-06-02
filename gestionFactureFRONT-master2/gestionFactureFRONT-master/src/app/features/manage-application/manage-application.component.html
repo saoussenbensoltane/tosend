@@ -1,0 +1,64 @@
+<div style="display: flex; justify-content: flex-start; flex-direction: row; margin-top: 5rem; margin-left: 2rem; margin-bottom: 3rem">
+  <div _ngcontent-ng-c1168945719="" style="margin-top: 2.5rem; margin-bottom: -1rem; font-size: large; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: rgb(61, 61, 133);"> <a (click)="home()"> /home</a>/manageapplications </div>
+
+  <button mat-raised-button class="addBtnColor" (click)="openDialog()">+ nouvelle Application</button>
+</div>
+
+
+
+<p-dialog header="Nouvelle Application" [(visible)]="visible"  [modal]="true" [style]="{width: '40vw', height: '60vh'}" [baseZIndex]="10000"
+          [draggable]="false" [resizable]="false">
+  <form [formGroup]="applicationForm" >
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <div style="display: flex; flex-direction: column;align-items: center;">
+        <label class="labelMarge">Code de l'application</label>
+        <input formControlName="code" style="width: 22rem;" type="text" pInputText>
+      </div><br>
+      <div style="display: flex; flex-direction: column;align-items: center;">
+          <label class="labelMarge">Libellé de l'application</label>
+          <input formControlName="libelle" style="width: 22rem;" type="text" pInputText>
+      </div>
+      <div style="display: flex; flex-direction: column;align-items: center;">
+          <label class="labelMarge">Prix de l'application</label>
+          <input formControlName="prix" style="width: 22rem;" type="text" pInputText>
+      </div>
+      
+    </div>
+  
+  </form>
+  <ng-template pTemplate="footer">
+    <button pButton icon="pi pi-times" (click)="visible = false"  class="p-button-danger" label="Cancel"></button>
+    <button pButton icon="pi pi-check" (click)="submitApplication()" label="Submit" ></button>
+  </ng-template>
+</p-dialog>
+
+
+
+<ng-container matColumnDef="codeapp">
+  <mat-header-cell *matHeaderCellDef> codeapp</mat-header-cell>
+  <mat-cell *matCellDef="let codeapp">{{ codeapp }}</mat-cell>
+</ng-container>
+<ng-container matColumnDef="libelleapp">
+  <mat-header-cell *matHeaderCellDef>libelleapp</mat-header-cell>
+  <mat-cell *matCellDef="let libelleapp">{{ libelleapp }}</mat-cell>
+</ng-container>
+<ng-container matColumnDef="prixapp">
+  <mat-header-cell *matHeaderCellDef>prix app</mat-header-cell>
+  <mat-cell *matCellDef="let prixapp">{{prixapp}}</mat-cell>
+
+</ng-container> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
